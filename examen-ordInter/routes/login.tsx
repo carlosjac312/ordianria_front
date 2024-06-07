@@ -12,8 +12,8 @@ export const handler: Handlers = {
     POST: async (req: Request, ctx: FreshContext<unknown, Data>) => {
         const url = new URL(req.url)
         const form = await req.formData();
-        const email = form.get("email")?.toString || "";
-        const password = form.get("password")?.toString || "";
+        const email = form.get("email")?.toString() || "";
+        const password = form.get("password")?.toString() || "";
 
         const JWT_SECRET = Deno.env.get("JWT_SECRET");
         if (!JWT_SECRET){
