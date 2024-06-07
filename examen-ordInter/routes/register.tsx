@@ -8,9 +8,9 @@ export const handler: Handlers = {
     POST: async (req: Request, ctx: FreshContext) => {
         const url = new URL(req.url)
         const form = await req.formData();
-        const email = form.get("email")?.toString || "";
-        const password = form.get("password")?.toString || "";
-        const name = form.get("name")?.toString || "";
+        const email = form.get("email")?.toString() || "";
+        const password = form.get("password")?.toString() || "";
+        const name = form.get("name")?.toString() || "";
 
         const API_URL = Deno.env.get("API_URL");
         if (!API_URL) {
